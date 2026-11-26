@@ -63,6 +63,7 @@ jobs:
       - name: merge p4 bins (single-file flash image)
         shell: bash
         run: |
+          . $IDF_PATH/export.sh >/dev/null 2>&1
           python -m esptool --chip esp32p4 merge_bin -o build/p4-merged.bin \
             --flash_mode dio --flash_size 32MB --flash_freq 80m \
             0x2000 build/bootloader/bootloader.bin \
