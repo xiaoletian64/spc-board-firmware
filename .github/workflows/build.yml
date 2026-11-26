@@ -25,6 +25,8 @@ jobs:
       - name: build esp32s3 (AtomS3U lineage)
         shell: bash
         run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          cp -n main/config.h.example main/config.h
           . $IDF_PATH/export.sh
           idf.py set-target esp32s3
           idf.py build
@@ -53,6 +55,8 @@ jobs:
       - name: build esp32p4 (p4 hub)
         shell: bash
         run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          cp -n main/config.h.example main/config.h
           . $IDF_PATH/export.sh
           idf.py set-target esp32p4 \
             -D SDKCONFIG_DEFAULTS="sdkconfig.defaults;sdkconfig.defaults.esp32p4"
