@@ -16,3 +16,10 @@
 
 #define BOARD_HOLD_MS          800
 #define BOARD_MIC_RATE_HZ      16000
+
+/* ESP32-P4-WIFI6 (Waveshare) — phone-hand p4 hub variant */
+#if CONFIG_IDF_TARGET_ESP32P4
+#define BOARD_NAME "esp32-p4-wifi6"
+#else
+#define BOARD_NAME "atoms3u"
+#endif
